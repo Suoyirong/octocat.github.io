@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app" class="app" style="display: flex;flex-direction: column;    align-items: center;justify-content: center;">
+        <div class="page"  style="    width: 100%;padding: 10px;max-width: 500px;" v-if="page == 1">
+            <div style="padding-top: 20%;padding-bottom: 20px;">
+                请输入申请贷款额度：
+            </div>
+            <el-input v-model="money" placeholder="请输入额度"></el-input>
+            <div style="color: #777777;margin-top: 10px;">
+                只能输入正整数
+            </div>
+            <el-button  style="position: absolute; bottom: 0;left: 0; width: 100%; bottom: 0px;" type="primary" :disabled="!money" 
+            @click="checkUser"
+            >下一步</el-button>
+        </div>
+        <div class="page" v-if="page == 2" style="max-width: 500px;">
+            <div style="position: relative;    height: 170px;
+            ">
+                <div style="position: absolute;top: 0;left: 0;">
+                    <img style="width:100%" src="./imagetitle.jpeg"></img>
+                </div>
+            </div>
+            <div style="
+            
+            padding: 10px;
+    position: relative;
+    top: -237px;
+    padding-top: 270px;">
+
+            
+            <div style="padding-top: 20%;padding-bottom: 20px;">
+                姓名：
+            </div>
+            <el-input v-model="name" placeholder="请输入姓名"></el-input>
+            
+            <div style="padding-top: 5%;padding-bottom: 20px;">
+                手机号码：
+            </div>
+            <el-input v-model="phone" placeholder="请输入手机号码" @input="idInput"></el-input>
+            <div style="height: 30px;color: red;"> 
+                <span v-if="phone.length && phone.length!=11">请输入正确的手机号码</span>
+            </div>
+            <div style="padding-top:0px;padding-bottom: 20px;">
+                身份证号码：
+            </div>
+            <el-input v-model="id" placeholder="请输入身份证号码"></el-input>
+            <div style="height: 30px;color: red;"> 
+                <span v-if="id.length && id.length!=18">请输入正确的身份证号码</span>
+            </div>
+            <div>
+                
+            </div>
+            <img style="width:100%" src="./WechatIMG291.jpeg"></img>
+            <div style="color: #777777;margin-top: 15px;">
+                请根据个人能力合理贷款，理性消费，避免逾期。市场有风险，投资需谨慎，具体额度、利息、到账时间等以审批为准，公积金相关资料仅作为贷款服务验资证明，放贷路径与公积金账户无关，平台提供贷款咨询服务，资金由正规持牌放款机构提供
+
+            </div>
+            <el-button  style="position: fixed; bottom: 0;left: 0; width: 100%; bottom: 0px;" type="primary" 
+            
+            @click="check"
+            >检测贷款额度</el-button>
+        </div>
+        </div>
+        <div class="page" v-if="page == 3"  style="padding: 10px;max-width: 500px;">
+            <el-steps :active="3" align-center style="padding-top: 20%">
+                <el-step title="基本信息" description=""></el-step>
+                <el-step title="提交申请" description=""></el-step>
+                <el-step title="审批成功" description=""></el-step>
+                <el-step title="签约放款" description=""></el-step>
+              </el-steps>
+              <div style="    text-align: center;
+              margin-top: 30px;
+              font-size: 20px;">
+                  <div style="    font-size: 70px;color:#67C23A"><i class="el-icon-success"></i></div>
+                  <div>恭喜!您已通过我司预审</div>
+              </div>
+              <el-divider style="color: #777777;"> <span style="color: #777777;">您的预审额度最高至</span> </el-divider>
+            <div style="    font-size: 24px; text-align: center;">￥{{addDou(money)}}.00</div>
+            <div style="text-align: center;color: #777777;"> 最长可分期期限10年
+            </div>
+            <div style="    margin-top: 30px;text-align: left;color: #777777;">
+                尊敬的&nbsp;&nbsp;{{name}}&nbsp;&nbsp;先生(女士)您好，您在我司申请的创业贷款已通过预审，请携带本人贷款相关材料于5个工作日内到我司办签约手续，本页面不够成法律要素，具体贷款要素以合同文本为主。
+
+
+            </div>
+            <div style="    margin-top: 30px;text-align: center;color: #777777;margin-bottom: 40px;">
+                申请时间：{{dataTime}}
+            </div>
+
+            <div id="box" style="display: flex;
+            justify-content: center;">
+                <div style="width: 84%;height: 300px;background: #fff;text-align: center;    overflow: hidden;">
+                  <div id="coxxxn1" ref="refRoll" >
+                    <div class="item" style="color: #FFF;background-color: red;margin-top: 10px;border-radius: 8px;height: 34px;line-height: 34px;" v-for="item in arr">{{item}}</div>
+                  </div>
+                </div>
+              </div>
+         
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./index.js?v=1">
+ 
+</script>
+<style>
+    body{
+        margin: 0 !important;
+    }
+    html,body,.app{
+        height: 100%;
+        margin: 0 !important;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .app{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .page{
+        max-width: 500px !important;
+        width: 100%;
+        height:100%;
+        position: relative;
+    }
+    .medium{
+        color: #FFF;
+    }
+ .anim{
+    transition: all 0.5s;
+  }
+  .item{
+      width: 100%;
+      height: 30px;
+      background-color: red;
+      color: #FFF;
+  }
+</style>
