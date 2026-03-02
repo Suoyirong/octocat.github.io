@@ -47,25 +47,25 @@ var app = new Vue({
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
             }).then(({ value }) => {
-                $.ajax({
-                    url: '/tools/verifyUser',
-                    type: 'GET',
-                    data: { userId: this.userId, password: value },
-                    success: function (response) {
-                        if (response.data !== null) {
+                // $.ajax({
+                //     url: '/tools/verifyUser',
+                //     type: 'GET',
+                //     data: { userId: this.userId, password: value },
+                //     success: function (response) {
+                //         if (response.data !== null) {
                             // 请求成功时的回调函数
                             that.page = 2
 
-                        }else{
-                            this.$message.error('登录失败');  
-                        }
+                //         }else{
+                //             this.$message.error('登录失败');  
+                //         }
 
-                    },
-                    error: function (xhr, status, error) {
-                        // 请求失败时的回调函数
-                        console.error(error);
-                    }
-                });
+                //     },
+                //     error: function (xhr, status, error) {
+                //         // 请求失败时的回调函数
+                //         console.error(error);
+                //     }
+                // });
 
             })
 
@@ -143,4 +143,5 @@ var app = new Vue({
             return num < 10 ? '0' + num : num;
         }
     },
+
 })
