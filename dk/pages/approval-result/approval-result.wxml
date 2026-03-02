@@ -1,0 +1,56 @@
+<!--approval-result.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="app">
+    <view class="page">
+      <!-- 步骤条 -->
+      <view class="steps">
+        <view class="step-item active">
+          <view class="step-circle">1</view>
+          <view class="step-title">基本信息</view>
+        </view>
+        <view class="step-item active">
+          <view class="step-circle">2</view>
+          <view class="step-title">提交申请</view>
+        </view>
+        <view class="step-item active">
+          <view class="step-circle">3</view>
+          <view class="step-title">审批成功</view>
+        </view>
+        <view class="step-item">
+          <view class="step-circle">4</view>
+          <view class="step-title">签约放款</view>
+        </view>
+      </view>
+
+      <view style="text-align: center; margin-top: 60rpx; font-size: 20px;">
+        <view style="font-size: 70px;color:#67C23A;">✓</view>
+        <view style="margin-top: 20rpx;">恭喜!您已通过我司预审</view>
+      </view>
+
+      <view class="divider" style="margin-top: 60rpx;">
+        <text style="color: #777777;">您的预审额度最高至</text>
+      </view>
+
+      <view style="font-size: 24px; text-align: center; margin-top: 40rpx;">￥{{money}}.00</view>
+      <view style="text-align: center;color: #777777; margin-top: 20rpx;"> 最长可分期期限10年</view>
+
+      <view style="margin-top: 60rpx; padding: 0 20rpx; text-align: left; color: #777777; line-height: 1.5;">
+        尊敬的 <text style="margin:0 8rpx">{{name}}</text>   先生(女士)您好，您在我司申请的创业贷款已通过预审，请携带本人贷款相关材料于5个工作日内到我司办签约手续，本页面不够成法律要素，具体贷款要素以合同文本为主。
+      </view>
+
+      <view style="margin-top: 60rpx; text-align: center; color: #777777; margin-bottom: 40px;">
+        申请时间：{{dataTime}}
+      </view>
+
+      <!-- 滚动消息 -->
+      <view id="box" style="display: flex; justify-content: center; margin-top: 40rpx;">
+        <view style="width: 84%; height: 300px; background: #f5f5f5; text-align: center; overflow: hidden; border-radius: 8rpx;">
+          <view id="coxxxn1" class="roll-container">
+            <view class="item" wx:for="{{arr}}" wx:key="index">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      <view style="height: 200rpx;"></view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,16 @@
+<!--loan-amount.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="app">
+    <view class="page">
+      <view style="padding-top: 20%;padding-bottom: 40rpx;">
+        请输入申请贷款额度：
+      </view>
+      <input class="input" placeholder="请输入额度" bindinput="bindMoneyInput" value="{{money}}" />
+      <view style="color: #777777;margin-top: 20rpx;">
+        只能输入正整数
+      </view>
+      <view style="height: 200rpx;"></view>
+      <view style="width:100vw" class="bottom-btn" type="primary" bindtap="checkUser">下一步</view>
+    </view>
+  </view>
+</scroll-view>

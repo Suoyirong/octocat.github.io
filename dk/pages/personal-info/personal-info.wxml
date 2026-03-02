@@ -1,0 +1,42 @@
+<!--personal-info.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="app">
+    <view class="page">
+      <view style="position: relative; height: 170px;">
+        <view style="position: absolute;top: 0;left: 0;">
+          <image style="width: 100vw;margin-left: -20rpx;" src="../../images/imagetitle.jpeg"></image>
+          <image style="position: absolute;top: 92rpx;right: 92rpx;width: 126rpx;height: 50rpx;" src="../../images/2026.png"></image>
+        </view>
+      </view>
+      <view style="padding: 10px; position: relative; top: -237px; padding-top: 270px;">
+        <view style="padding-top: 20%;padding-bottom: 40rpx;">
+          姓名：
+        </view>
+        <input class="input" placeholder="请输入姓名" bindinput="bindNameInput" value="{{name}}" />
+
+        <view style="padding-top: 5%;padding-bottom: 40rpx;">
+          手机号码：
+        </view>
+        <input class="input" placeholder="请输入手机号码" bindinput="bindPhoneInput" value="{{phone}}" />
+        <view style="height: 30px;color: red;">
+          <text wx:if="{{phone.length && phone.length!=11}}">请输入正确的手机号码</text>
+        </view>
+
+        <view style="padding-top: 5%;padding-bottom: 40rpx;">
+          身份证号码：
+        </view>
+        <input class="input" placeholder="请输入身份证号码" bindinput="bindIdInput" value="{{id}}" />
+        <view style="height: 30px;color: red;">
+          <text wx:if="{{id.length && id.length!=18}}">请输入正确的身份证号码</text>
+        </view>
+
+        <image style="width:100%; height: 210rpx; margin-top: 40rpx;" src="../../images/WechatIMG291.jpeg"></image>
+        <view style="color: #777777;margin-top: 30rpx; line-height: 1.5;">
+          请根据个人能力合理贷款，理性消费，避免逾期。市场有风险，投资需谨慎，具体额度、利息、到账时间等以审批为准，公积金相关资料仅作为贷款服务验资证明，放贷路径与公积金账户无关，平台提供贷款咨询服务，资金由正规持牌放款机构提供
+        </view>
+        <view style="height: 200rpx;"></view>
+        <view  style="width:100vw"  class="bottom-btn" type="primary" bindtap="check">检测贷款额度</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
